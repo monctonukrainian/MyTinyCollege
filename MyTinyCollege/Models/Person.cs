@@ -18,7 +18,7 @@ namespace MyTinyCollege.Models
         [Required]
         [StringLength(50)]
         [Display(Name = "First Name")]
-        public string FirstMidName { get; set; }
+        public string FirstName { get; set; }
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
@@ -33,7 +33,7 @@ namespace MyTinyCollege.Models
         {
             get
             {
-                return LastName + ", " + FirstMidName;
+                return LastName + ", " + FirstName;
             }
         }
     }

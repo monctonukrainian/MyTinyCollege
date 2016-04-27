@@ -10,7 +10,7 @@ namespace MyTinyCollege.Models
     }
     public class Enrollment
     {
-        public int enrollmentID { get; set; }//PK
+        public int EnrollmentID { get; set; }//PK
         public int CourseID { get; set; }//FK to course
         public int StudentID { get; set; }//FK to student
 
