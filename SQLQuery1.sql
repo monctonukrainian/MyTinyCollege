@@ -1,0 +1,1 @@
+﻿UPDATE Course SET Credits = 3

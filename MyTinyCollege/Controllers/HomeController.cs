@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTinyCollege.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,16 @@ namespace MyTinyCollege.Controllers
 {
     public class HomeController : Controller
     {
+        private SchoolContext db = new SchoolContext();
         public ActionResult Index()
         {
-            return View();
+            //jkhalack: added department model to this view
+            //          for display on home page
+            //return View();
+
+            var departments = db.Departments
+                .OrderBy(d => d.Name).ToList();
+            return View(departments);
         }
 
         public ActionResult About()

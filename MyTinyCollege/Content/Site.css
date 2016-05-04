@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*center department list on home page */
+.center-block{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}

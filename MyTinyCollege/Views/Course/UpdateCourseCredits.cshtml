@@ -1,0 +1,46 @@
+﻿@model MyTinyCollege.Models.Course
+
+@{
+    ViewBag.Title = "UpdateCourseCredits";
+}
+
+<h2>UpdateCourseCredits</h2>
+
+@if (ViewBag.RowsAffected == null)
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-inline">
+            <div class="form-group">
+                <label for="multiplier">Enter a number to multiply every course's credits by:</label>
+                
+                    @Html.TextBox("multiplier", "1", new
+           {
+               @class = "form-control",
+               @style = "max-width:45px",
+               @maxlength = "1",
+               @pattern = "[1-9]{1}",
+               @title = "multiplier muxt be a number between 1 and 9"
+           })               
+            </div>  
+                    <input type="submit" value="Update" class="btn btn-default" />                          
+        </div>
+    }
+} 
+
+@if( ViewBag.RowsAffected != null)
+{
+    <p>Number of rows updated: @ViewBag.RowsAffected</p>
+}
+@*end of if viewBag*@
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
