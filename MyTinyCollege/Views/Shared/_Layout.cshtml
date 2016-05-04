@@ -22,22 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Students<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
-                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                            <li>@Html.ActionLink("Stats Report", "Stats", "Student")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Faculty<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Instructors", "Index", "Instructor")</li>
-                            <li>@Html.ActionLink("Departments", "Index", "Department")</li>
-                        </ul>
-                    </li>
-                   
+                    @Html.Partial("_AdminPartial")
 
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
