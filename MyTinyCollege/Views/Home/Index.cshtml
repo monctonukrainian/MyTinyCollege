@@ -42,18 +42,21 @@
     <h2>
         Faculties
     </h2>
+    @{
+        var action = (User.IsInRole("admin") ? "Index" : "Listing");
+    }
     @foreach (var item in Model)
     {
         <div class="col-md-3 col-sm-6 center-block">
             <div class="thumbnail">
-                <a href="@Url.Action("Index","Course",new { SelectedDepartment = item.DepartmentID})">
+                <a href="@Url.Action(action,"Course",new { SelectedDepartment = item.DepartmentID})">
                     <img src="~/DeptPics/@(item.DepartmentID).png" alt="@item.Name" />
                     <div class="caption">
                         <h4>@item.Name</h4>
                     </div>
                 </a>
-        </div>
+            </div>
 
-    </div>
+        </div>
     }
-    </div>
+</div>

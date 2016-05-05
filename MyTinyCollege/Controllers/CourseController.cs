@@ -170,6 +170,16 @@ namespace MyTinyCollege.Controllers
             return View();
         }
 
+       
+        //jkhalack: Anonymous view of listing
+        [AllowAnonymous]
+        public ActionResult Listing(int? SelectedDepartment)
+        {
+            IQueryable<Course> courses = GetCourses(SelectedDepartment);
+            return View(courses.ToList());
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

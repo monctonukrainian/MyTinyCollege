@@ -1,0 +1,76 @@
+﻿@model MyTinyCollege.ViewModels.InstructorIndexData
+
+@{
+    ViewBag.Title = "Instructor Courses";
+}
+
+<h2>Instructor Courses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Your courses
+        </th>        
+    </tr>
+
+@foreach (var item in Model.Instructors) {
+    <tr>
+        <td>
+            @{
+                foreach (var course in item.Courses)
+                {
+                    @Html.ActionLink(course.CourseIdTitle, "Index", new
+               {
+                    courseID = course.CourseID
+               })<br />
+                }
+            }
+
+        </td>        
+    </tr>
+}
+
+</table>
+
+@if (Model.Enrollments!=null)
+{
+    <h3>Student Enrolled in:</h3>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>@item.student.FullName</td>
+                        <td>@Html.DisplayFor(modelItem => item.Grade)</td>
+                        <td>
+                            @if (String.IsNullOrEmpty(item.Grade.ToString()))
+                            {
+                                <a href="@Url.Action("Edit","InstructorCourse",new {id=item.EnrollmentID, courseID=item.CourseID })">Add Grade</a>
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Edit","InstructorCourse",new {id=item.EnrollmentID, courseID=item.CourseID })">Edit Grade</a>
+                                <span class="glyphicon glyphicon-edit"></span>
+                            }
+
+                        </td>
+
+
+
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
